@@ -1,0 +1,31 @@
+c_compiler:
+- gcc
+c_compiler_version:
+- '7'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+curl:
+- '7.64'
+docker_image:
+- condaforge/linux-anvil-comp7
+freetype:
+- 2.9.1
+harfbuzz:
+- '2'
+openjpeg:
+- '2.3'
+pin_run_as_build:
+  curl:
+    max_pin: x
+  freetype:
+    max_pin: x
+  harfbuzz:
+    max_pin: x
+  openjpeg:
+    max_pin: x.x
+  zlib:
+    max_pin: x.x
+zlib:
+- '1.2'

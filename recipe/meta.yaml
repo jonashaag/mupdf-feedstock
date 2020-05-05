@@ -1,5 +1,5 @@
 {% set name = "mupdf" %}
-{% set version = "1.16.1" %}
+{% set version = "1.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://www.mupdf.com/downloads/archive/mupdf-{{ version }}-source.tar.xz
-  sha256: 6fe78184bd5208f9595e4d7f92bc8df50af30fbe8e2c1298b581c84945f2f5da
+  sha256: c935fb2593d9a28d9b56b59dad6e3b0716a6790f8a257a68fa7dcb4430bc6086
   patches:
     # Make shared libs, rather than static
     # https://bugs.ghostscript.com/show_bug.cgi?id=702250
@@ -21,7 +21,7 @@ source:
 build:
   number: 0
   skip: true  # [win]
-  missing_dso_whitelist:  # [osx]
+  missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/GLUT.framework/Versions/A/GLUT  # [osx]
 
 requirements:
@@ -69,7 +69,7 @@ about:
   license: AGPL-3.0-only
   license_family: GPL
   license_file: COPYING
-  summary: 'A lightweight PDF, XPS, and E-book viewer'
+  summary: A lightweight PDF, XPS, and E-book viewer
   description: |
     The renderer in MuPDF is tailored for high quality anti-aliased graphics.
     It renders text with metrics and spacing accurate to within fractions of

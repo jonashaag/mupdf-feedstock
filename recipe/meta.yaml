@@ -51,13 +51,7 @@ requirements:
   run:
     - xorg-libxext  # [linux]
     - xorg-libx11  # [linux]
-    - jpeg
-    - openjpeg
-    - libcurl  # [linux]
     - curl
-    - openssl  # [linux]
-    - harfbuzz
-    - freeglut  # [linux or win]
 
 test:
   commands:

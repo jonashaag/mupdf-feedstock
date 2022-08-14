@@ -19,7 +19,7 @@ source:
     - Makerules.patch  # [osx]
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/GLUT.framework/Versions/A/GLUT  # [osx]
@@ -51,13 +51,7 @@ requirements:
   run:
     - xorg-libxext  # [linux]
     - xorg-libx11  # [linux]
-    - jpeg
-    - openjpeg
-    - libcurl  # [linux]
     - curl
-    - openssl  # [linux]
-    - harfbuzz
-    - freeglut  # [linux or win]
 
 test:
   commands:

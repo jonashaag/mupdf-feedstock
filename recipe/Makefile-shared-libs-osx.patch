@@ -1,5 +1,5 @@
 --- Makefile.ori	2022-08-15 23:32:42.950710308 -0400
-+++ Makefile	2022-08-23 22:59:45.599338377 -0400
++++ Makefile	2022-08-26 17:13:29.495341185 -0400
 @@ -21,7 +21,7 @@
  # Do not specify CFLAGS or LIBS on the make invocation line - specify
  # XCFLAGS or XLIBS instead. Make ignores any lines in the makefile that
@@ -63,7 +63,7 @@
  $(PKCS7_LIB) : $(PKCS7_OBJ)
 +	$(LINK_CMD) -v -shared -Wl,-install_name -Wl,libmupdf-pkcs7.dylib -undefined dynamic_lookup
 +
-+LIBS_TO_INSTALL_IN_BIN := $(MUPDF_LIB) $(THIRD_LIB) $(THREAD_LIB) $(PKCS7_LIB)
++LIBS_TO_INSTALL_IN_LIB := $(MUPDF_LIB) $(THIRD_LIB) $(THREAD_LIB) $(PKCS7_LIB)
  
  # --- Main tools and viewers ---
  

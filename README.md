@@ -180,4 +180,5 @@ Feedstock Maintainers
 =====================
 
 * [@scopatz](https://github.com/scopatz/)
+* [@xmnlab](https://github.com/xmnlab/)
 

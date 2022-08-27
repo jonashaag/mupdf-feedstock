@@ -1,5 +1,5 @@
 {% set name = "mupdf" %}
-{% set version = "1.17.0" %}
+{% set version = "1.19.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,19 @@ package:
 
 source:
   url: https://www.mupdf.com/downloads/archive/mupdf-{{ version }}-source.tar.xz
-  sha256: c935fb2593d9a28d9b56b59dad6e3b0716a6790f8a257a68fa7dcb4430bc6086
+  sha256: b5eac663fe74f33c430eda342f655cf41fa73d71610f0884768a856a82e3803e
   patches:
     # Make shared libs, rather than static
     # https://bugs.ghostscript.com/show_bug.cgi?id=702250
+    # don't install fully rendered docs
     - Makefile-shared-libs-linux.patch  # [linux]
     - Makefile-shared-libs-osx.patch  # [osx]
-    # don't install fully rendered docs
-    - Makefile.patch  # [unix]
     # OSX has libfreetype.a, not libfreetype2.a
     - Makerules.patch  # [osx]
 
 build:
-  number: 3
+  number: 0
+  # TODO: enable again osx when possible
   skip: true  # [win]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/GLUT.framework/Versions/A/GLUT  # [osx]
@@ -27,6 +27,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
     - {{ cdt('libselinux') }}  # [linux]
@@ -40,6 +41,7 @@ requirements:
   host:
     - xorg-libxfixes  # [linux]
     - libglu  # [linux]
+    - libgumbo
     - mesalib  # [unix]
     - freetype
     - jbig2dec

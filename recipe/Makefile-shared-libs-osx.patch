@@ -9,13 +9,13 @@
  LIBS += $(XLIBS) -lm
  
  ifneq ($(threading),no)
-@@ -232,46 +232,27 @@
+@@ -270,46 +270,27 @@
  
  # --- Library ---
  
 -ifeq ($(shared),yes)
 -MUPDF_LIB = $(OUT)/libmupdf.$(SO)
--ifeq ($(OS),MINGW)
+-ifeq ($(SO),dll)
 -MUPDF_LIB_IMPORT = $(OUT)/libmupdf_$(SO).a
 -LIBS_TO_INSTALL_IN_BIN = $(MUPDF_LIB)
 -LIBS_TO_INSTALL_IN_LIB = $(MUPDF_LIB_IMPORT)
@@ -67,7 +67,7 @@
  
  # --- Main tools and viewers ---
  
-@@ -416,10 +397,10 @@
+@@ -457,12 +457,12 @@
  	install -m 644 docs/man/*.1 $(DESTDIR)$(mandir)/man1
  
  	install -d $(DESTDIR)$(docdir)
@@ -78,6 +78,8 @@
 -	install -m 644 docs/examples/* $(DESTDIR)$(docdir)/examples
 +	# install -m 644 docs/*.html docs/*.css docs/*.png $(DESTDIR)$(docdir)
 +	# install -m 644 docs/examples/* $(DESTDIR)$(docdir)/examples
+ 
+ install: install-libs install-apps install-docs
  
  tarball:
  	bash scripts/archive.sh

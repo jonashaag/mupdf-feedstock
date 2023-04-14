@@ -1,5 +1,5 @@
 {% set name = "mupdf" %}
-{% set version = "1.21.1" %}
+{% set version = "1.22.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,8 @@ package:
 
 source:
   url: https://www.mupdf.com/downloads/archive/mupdf-{{ version }}-source.tar.gz
-  sha256: b24ddbe12506cc82de08d5cd494614ba08346f8175db1d98bcf938ff94925a54
-          
+  sha256: 5cae91c6332fa6cb08f1258addd27b736c4663f92698c8897b382c453534ee60
+
   patches:
     # Make shared libs, rather than static
     # https://bugs.ghostscript.com/show_bug.cgi?id=702250
@@ -19,7 +19,7 @@ source:
     - Makerules.patch  # [osx]
 
 build:
-  number: 1
+  number: 0
   # TODO: enable again osx when possible
   skip: true  # [win]
   missing_dso_whitelist:   # [osx]

@@ -1,5 +1,5 @@
 {% set name = "mupdf" %}
-{% set version = "1.22.0" %}
+{% set version = "1.22.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://www.mupdf.com/downloads/archive/mupdf-{{ version }}-source.tar.gz
-  sha256: 5cae91c6332fa6cb08f1258addd27b736c4663f92698c8897b382c453534ee60
+  sha256: d3df26f93d6b6c628bfc8cb184378a8e22feb50198909fedeb424e977c7b339d
 
   patches:
     # Make shared libs, rather than static

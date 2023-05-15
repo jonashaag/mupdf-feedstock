@@ -19,7 +19,7 @@ docker_image:
 freetype:
 - '2'
 harfbuzz:
-- '6'
+- '7'
 openjpeg:
 - '2'
 target_platform:

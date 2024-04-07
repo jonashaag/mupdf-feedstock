@@ -10,9 +10,6 @@ if [[ "$target_platform" == osx* ]]; then
   export CFLAGS="${CFLAGS} -I $(ls -d ${PREFIX}/include/openjpeg-*)"
   #export SYS_FREETYPE_LIBS=" -lfreetype"
   #export SYS_FREETYPE_CFLAGS="${CFLAGS}"
-else
-  # Fails on MacOS - so tesseract is only available on linux for now
-  export USE_TESSERACT=yes
 fi
 export CFLAGS="${CFLAGS} -I ${PREFIX}/include/harfbuzz"
 export XCFLAGS="${CFLAGS}"
@@ -24,6 +21,6 @@ export USE_SYSTEM_JPEGXR=yes
 #ls -lh ${PREFIX}/lib
 
 # build and install
-make prefix="${PREFIX}" -j ${CPU_COUNT} all
+make prefix="${PREFIX}" tesseract=yes -j ${CPU_COUNT} all
 # no make check
 make prefix="${PREFIX}" install

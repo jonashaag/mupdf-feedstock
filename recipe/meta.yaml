@@ -50,8 +50,9 @@ requirements:
     - curl
     - harfbuzz
     - freeglut  # [linux or win]
-    - tesseract
-    - leptonica
+    # Fails on MacOS - so tesseract is only available on linux for now
+    - tesseract  # [linux]
+    - leptonica  # [linux]
   run:
     - xorg-libxext  # [linux]
     - xorg-libx11  # [linux]

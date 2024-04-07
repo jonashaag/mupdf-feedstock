@@ -16,6 +16,7 @@ export XCFLAGS="${CFLAGS}"
 export XLIBS="${LIBS}"
 export USE_SYSTEM_LIBS=yes
 export USE_SYSTEM_JPEGXR=yes
+export USE_TESSERACT=yes
 
 # diagnostics
 #ls -lh ${PREFIX}/lib

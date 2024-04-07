@@ -21,6 +21,6 @@ export USE_SYSTEM_JPEGXR=yes
 #ls -lh ${PREFIX}/lib
 
 # build and install
-make prefix="${PREFIX}" tesseract=yes -j ${CPU_COUNT} all
+make prefix="${PREFIX}" tesseract="yes" -j ${CPU_COUNT} all
 # no make check
 make prefix="${PREFIX}" install

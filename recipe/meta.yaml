@@ -50,8 +50,8 @@ requirements:
     - curl
     - harfbuzz
     - freeglut  # [linux or win]
-    - tesseract
-    - leptonica
+    - tesseract  # [linux]
+    - leptonica  # [linux]
   run:
     - xorg-libxext  # [linux]
     - xorg-libx11  # [linux]

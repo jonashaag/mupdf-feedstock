@@ -1,14 +1,14 @@
-From 2011279b784a4a27334ee8a6740fae9377bd7763 Mon Sep 17 00:00:00 2001
-From: Jan Janssen <janssen@mpie.de>
-Date: Thu, 28 Mar 2024 15:52:14 -0500
-Subject: [PATCH] macOS
+From f8b49a8a6f19c7906802ebe5d19b6015bf1662c6 Mon Sep 17 00:00:00 2001
+From: Jan Janssen <jan-janssen@users.noreply.github.com>
+Date: Sat, 6 Apr 2024 23:00:53 -0500
+Subject: [PATCH] Update Makefile
 
 ---
- Makefile | 49 +++++++++++++++----------------------------------
- 1 file changed, 15 insertions(+), 34 deletions(-)
+ Makefile | 55 +++++++++++++++----------------------------------------
+ 1 file changed, 15 insertions(+), 40 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 53cf06f..740b393 100644
+index 53cf06f9c6..3270cda98c 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -21,7 +21,7 @@ include Makethird
@@ -92,3 +92,20 @@ index 53cf06f..740b393 100644
  
  install: install-libs install-apps install-docs
  
+@@ -640,16 +621,10 @@ endif
+ install-shared-c: install-shared-check shared install-headers
+ 	install -d $(DESTDIR)$(libdir)
+ 	install -m $(SO_INSTALL_MODE) $(OUT)/libmupdf.$(SO)$(SO_VERSION) $(DESTDIR)$(libdir)/
+-ifneq ($(OS),OpenBSD)
+-	ln -sf libmupdf.$(SO)$(SO_VERSION) $(DESTDIR)$(libdir)/libmupdf.$(SO)
+-endif
+ 
+ install-shared-c++: install-shared-c c++
+ 	install -m 644 platform/c++/include/mupdf/*.h $(DESTDIR)$(incdir)/mupdf
+ 	install -m $(SO_INSTALL_MODE) $(OUT)/libmupdfcpp.$(SO)$(SO_VERSION) $(DESTDIR)$(libdir)/
+-ifneq ($(OS),OpenBSD)
+-	ln -sf libmupdfcpp.$(SO)$(SO_VERSION) $(DESTDIR)$(libdir)/libmupdfcpp.$(SO)
+-endif
+ 
+ install-shared-python: install-shared-c++ python
+ 	install -d $(DESTDIR)$(pydir)/mupdf

@@ -17,9 +17,10 @@ source:
     - Makefile-shared-libs-osx.patch  # [osx]
     # OSX has libfreetype.a, not libfreetype2.a
     - Makerules.patch  # [osx]
+    - wrap.patch  # [osx]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/GLUT.framework/Versions/A/GLUT  # [osx]
@@ -38,6 +39,9 @@ requirements:
     - ninja  # [win]
     - make
     - pkg-config
+    - swig
+    - python-clang
+    - python
   host:
     - xorg-libxfixes  # [linux]
     - libglu  # [linux]

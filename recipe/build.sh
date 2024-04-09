@@ -22,6 +22,6 @@ export VENV_FLAG=""
 #ls -lh ${PREFIX}/lib
 
 # build and install
-make prefix="${PREFIX}" shared=yes -j ${CPU_COUNT} all c++ python
+make prefix="${PREFIX}" shared=yes -j ${CPU_COUNT} all python
 # no make check
-make prefix="${PREFIX}" shared=yes install install-shared-c++ install-shared-python
+make prefix="${PREFIX}" shared=yes install install-shared-python

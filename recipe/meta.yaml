@@ -1,5 +1,5 @@
 {% set name = "mupdf" %}
-{% set version = "1.24.0" %}
+{% set version = "1.24.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://www.mupdf.com/downloads/archive/mupdf-{{ version }}-source.tar.gz
-  sha256: 52f63003a6f4d89f234e9edfb4b4c83d216b83aaeb323cfda6047cb754599ae0
+  sha256: 5840308280a2be7bd55f5e8a0b5a3ab8839689fa389a48a91433dcabd465be4d
 
   patches:
     # Make shared libs, rather than static
@@ -17,6 +17,7 @@ source:
     - Makefile-shared-libs-osx.patch  # [osx]
     # OSX has libfreetype.a, not libfreetype2.a
     - Makerules.patch  # [osx]
+    - wrap.patch  # [osx]
 
 build:
   number: 1
@@ -38,6 +39,9 @@ requirements:
     - ninja  # [win]
     - make
     - pkg-config
+    - swig
+    - python-clang
+    - python
   host:
     - xorg-libxfixes  # [linux]
     - libglu  # [linux]

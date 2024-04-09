@@ -20,7 +20,7 @@ source:
     - wrap.patch  # [osx]
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/GLUT.framework/Versions/A/GLUT  # [osx]
@@ -41,8 +41,8 @@ requirements:
     - pkg-config
     - swig
     - python-clang
-    - python
   host:
+    - python
     - xorg-libxfixes  # [linux]
     - libglu  # [linux]
     - libgumbo
@@ -55,6 +55,7 @@ requirements:
     - harfbuzz
     - freeglut  # [linux or win]
   run:
+    - python
     - xorg-libxext  # [linux]
     - xorg-libx11  # [linux]
     - curl

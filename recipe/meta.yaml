@@ -41,8 +41,8 @@ requirements:
     - pkg-config
     - swig
     - python-clang
-    - python
   host:
+    - python
     - xorg-libxfixes  # [linux]
     - libglu  # [linux]
     - libgumbo
@@ -57,6 +57,7 @@ requirements:
     - tesseract  # [linux]
     - leptonica  # [linux]
   run:
+    - python
     - xorg-libxext  # [linux]
     - xorg-libx11  # [linux]
     - curl

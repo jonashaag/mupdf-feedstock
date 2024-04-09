@@ -1,14 +1,14 @@
-From 2b44cd07dd2e01c8a26f2d159238f9c747382a95 Mon Sep 17 00:00:00 2001
+From 8593a59d32a241c907f8ff623a8ba8960e00707e Mon Sep 17 00:00:00 2001
 From: Jan Janssen <jan-janssen@users.noreply.github.com>
-Date: Sat, 6 Apr 2024 20:42:55 -0500
+Date: Tue, 9 Apr 2024 16:30:40 -0500
 Subject: [PATCH] Update __main__.py
 
 ---
- scripts/wrap/__main__.py | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ scripts/wrap/__main__.py | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/scripts/wrap/__main__.py b/scripts/wrap/__main__.py
-index c479cb8cea..597fbfdef1 100644
+index c479cb8cea..02ba7533a9 100644
 --- a/scripts/wrap/__main__.py
 +++ b/scripts/wrap/__main__.py
 @@ -1662,8 +1662,8 @@ def fn(name):
@@ -22,3 +22,23 @@ index c479cb8cea..597fbfdef1 100644
                      if pyodide:
                          # Compile/link separately. Otherwise
                          # emsdk/upstream/bin/llvm-nm: error: a.out: No such
+@@ -2016,7 +2016,7 @@ def fn(name):
+ 
+                     if build_python:
+                         cpp_path = f'{build_dirs.dir_mupdf}/platform/python/mupdfcpp_swig.cpp'
+-                        out_so = f'{build_dirs.dir_so}/_mupdf.so'
++                        out_so = f'{build_dirs.dir_so}/_mupdf.dylib'
+                     elif build_csharp:
+                         cpp_path = f'{build_dirs.dir_mupdf}/platform/csharp/mupdfcpp_swig.cpp'
+                         out_so = f'{build_dirs.dir_so}/mupdfcsharp.so'  # todo: append {so_version} ?
+@@ -2188,8 +2188,8 @@ def fn(name):
+                                 )
+                         if command_was_run:
+                             macos_patch( out_so,
+-                                    f'{build_dirs.dir_so}/libmupdf.dylib{so_version}',
+-                                    f'{build_dirs.dir_so}/libmupdfcpp.so{so_version}',
++                                    f'{build_dirs.dir_so}/libmupdf.dylib',
++                                    f'{build_dirs.dir_so}/libmupdfcpp.dylib',
+                                     )
+             else:
+                 raise Exception( 'unrecognised --build action %r' % action)

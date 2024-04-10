@@ -65,6 +65,8 @@ test:
   commands:
     - test -f $PREFIX/bin/mutool  # [unix]
     - if not exist %LIBRARY_BIN%\\mutool.exe exit 1  # [win]
+  imports:
+    - mupdf
 
 about:
   home: https://www.mupdf.com/

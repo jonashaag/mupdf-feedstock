@@ -25,7 +25,7 @@ export VENV_FLAG=""
 #ls -lh ${PREFIX}/lib
 
 # build and install
-make prefix="${PREFIX}" tesseract=${TESSERACT} shared=yes -j ${CPU_COUNT} all python
+make prefix="${PREFIX}" pydir="${SP_DIR}" tesseract=${TESSERACT} shared=yes -j ${CPU_COUNT} all python
 
 # no make check
-make prefix="${PREFIX}" tesseract=${TESSERACT} shared=yes install install-shared-python
+make prefix="${PREFIX}" pydir="${SP_DIR}" tesseract=${TESSERACT} shared=yes install install-shared-python

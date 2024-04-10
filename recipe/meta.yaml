@@ -28,6 +28,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
@@ -66,6 +67,8 @@ test:
   commands:
     - test -f $PREFIX/bin/mutool  # [unix]
     - if not exist %LIBRARY_BIN%\\mutool.exe exit 1  # [win]
+  imports:
+    - mupdf  # [linux]
 
 about:
   home: https://www.mupdf.com/

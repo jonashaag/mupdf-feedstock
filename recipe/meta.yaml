@@ -20,7 +20,7 @@ source:
     - wrap.patch  # [osx]
 
 build:
-  number: 4
+  number: 5
   skip: true  # [win]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/GLUT.framework/Versions/A/GLUT  # [osx]
@@ -55,6 +55,8 @@ requirements:
     - curl
     - harfbuzz
     - freeglut  # [linux or win]
+    - tesseract  # [linux]
+    - leptonica  # [linux]
   run:
     - python
     - xorg-libxext  # [linux]

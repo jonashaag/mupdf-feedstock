@@ -19,7 +19,7 @@ index 53cf06f..9414928 100644
 +CFLAGS += $(XCFLAGS) -Iinclude -fPIC
  LIBS += $(XLIBS) -lm
  
- ifneq ($(threading),no)
+ LDFLAGS += $(XLDFLAGS)
 @@ -487,10 +487,10 @@ install-docs:
  	install -m 644 docs/man/*.1 $(DESTDIR)$(mandir)/man1
  

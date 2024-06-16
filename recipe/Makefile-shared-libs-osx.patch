@@ -19,7 +19,7 @@ index 53cf06f9c6..3270cda98c 100644
 +CFLAGS += $(XCFLAGS) -Iinclude -fPIC
  LIBS += $(XLIBS) -lm
  
- ifneq ($(threading),no)
+ LDFLAGS += $(XLDFLAGS)
 @@ -293,46 +293,27 @@ generate: source/html/css-properties.h
  
  # --- Library ---

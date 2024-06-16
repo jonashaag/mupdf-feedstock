@@ -1,6 +1,6 @@
-From f8b49a8a6f19c7906802ebe5d19b6015bf1662c6 Mon Sep 17 00:00:00 2001
+From 4d4a5423abfc0965b21482aa90c332a7a231f251 Mon Sep 17 00:00:00 2001
 From: Jan Janssen <jan-janssen@users.noreply.github.com>
-Date: Sat, 6 Apr 2024 23:00:53 -0500
+Date: Sun, 16 Jun 2024 07:45:00 +0200
 Subject: [PATCH] Update Makefile
 
 ---
@@ -8,19 +8,19 @@ Subject: [PATCH] Update Makefile
  1 file changed, 15 insertions(+), 40 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 53cf06f9c6..3270cda98c 100644
+index e3cedca..a33a47a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -21,7 +21,7 @@ include Makethird
- # Do not specify CFLAGS or LIBS on the make invocation line - specify
- # XCFLAGS or XLIBS instead. Make ignores any lines in the makefile that
- # set a variable that was set on the command line.
+@@ -22,7 +22,7 @@ include Makethird
+ # invocation line - specify XCFLAGS, XLDFLAGS, XLIB_LDFLAGS, XEXE_LDFLAGS or
+ # XLIBS instead. Make ignores any lines in the makefile that set a variable
+ # that was set on the command line.
 -CFLAGS += $(XCFLAGS) -Iinclude
 +CFLAGS += $(XCFLAGS) -Iinclude -fPIC
  LIBS += $(XLIBS) -lm
  
- ifneq ($(threading),no)
-@@ -293,46 +293,27 @@ generate: source/html/css-properties.h
+ LDFLAGS += $(XLDFLAGS)
+@@ -298,47 +298,28 @@ generate: source/html/css-properties.h
  
  # --- Library ---
  
@@ -73,12 +73,13 @@ index 53cf06f9c6..3270cda98c 100644
 +	$(LINK_CMD) -shared -Wl,-install_name -Wl,libmupdf-threads.dylib -undefined dynamic_lookup -lpthread
  $(PKCS7_LIB) : $(PKCS7_OBJ)
 +	$(LINK_CMD) -v -shared -Wl,-install_name -Wl,libmupdf-pkcs7.dylib -undefined dynamic_lookup
-+
-+LIBS_TO_INSTALL_IN_LIB := $(MUPDF_LIB) $(THIRD_LIB) $(THREAD_LIB) $(PKCS7_LIB) 
  
++LIBS_TO_INSTALL_IN_LIB := $(MUPDF_LIB) $(THIRD_LIB) $(THREAD_LIB) $(PKCS7_LIB) 
++ 
  # --- Main tools and viewers ---
  
-@@ -487,10 +468,10 @@ install-docs:
+ MUTOOL_SRC := source/tools/mutool.c
+@@ -492,10 +473,10 @@ install-docs:
  	install -m 644 docs/man/*.1 $(DESTDIR)$(mandir)/man1
  
  	install -d $(DESTDIR)$(docdir)
@@ -92,7 +93,7 @@ index 53cf06f9c6..3270cda98c 100644
  
  install: install-libs install-apps install-docs
  
-@@ -640,16 +621,10 @@ endif
+@@ -645,16 +626,10 @@ endif
  install-shared-c: install-shared-check shared install-headers
  	install -d $(DESTDIR)$(libdir)
  	install -m $(SO_INSTALL_MODE) $(OUT)/libmupdf.$(SO)$(SO_VERSION) $(DESTDIR)$(libdir)/

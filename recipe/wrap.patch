@@ -8,10 +8,10 @@ Subject: [PATCH] Update __main__.py
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/scripts/wrap/__main__.py b/scripts/wrap/__main__.py
-index c479cb8cea..02ba7533a9 100644
+index ddd23a2815..3c689bee91 100644
 --- a/scripts/wrap/__main__.py
 +++ b/scripts/wrap/__main__.py
-@@ -1662,8 +1662,8 @@ def fn(name):
+@@ -1649,8 +1649,8 @@ def fn(name):
                      cpp_files_text = ''
                      for i in cpp_files:
                          cpp_files_text += ' ' + os.path.relpath(i)
@@ -22,16 +22,16 @@ index c479cb8cea..02ba7533a9 100644
                      if pyodide:
                          # Compile/link separately. Otherwise
                          # emsdk/upstream/bin/llvm-nm: error: a.out: No such
-@@ -2016,7 +2016,7 @@ def fn(name):
+@@ -2055,7 +2055,7 @@ def fn(name):
  
                      if build_python:
-                         cpp_path = f'{build_dirs.dir_mupdf}/platform/python/mupdfcpp_swig.cpp'
+                         cpp_path = build_dirs.mupdfcpp_swig_cpp('python')
 -                        out_so = f'{build_dirs.dir_so}/_mupdf.so'
 +                        out_so = f'{build_dirs.dir_so}/_mupdf.dylib'
                      elif build_csharp:
-                         cpp_path = f'{build_dirs.dir_mupdf}/platform/csharp/mupdfcpp_swig.cpp'
+                         cpp_path = build_dirs.mupdfcpp_swig_cpp('csharp')
                          out_so = f'{build_dirs.dir_so}/mupdfcsharp.so'  # todo: append {so_version} ?
-@@ -2188,8 +2188,8 @@ def fn(name):
+@@ -2226,8 +2226,8 @@ def fn(name):
                                  )
                          if command_was_run:
                              macos_patch( out_so,

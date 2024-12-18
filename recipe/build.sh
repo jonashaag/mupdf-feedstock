@@ -23,6 +23,7 @@ export XLIBS="${LIBS}"
 export USE_SYSTEM_LIBS=yes
 export USE_SYSTEM_JPEGXR=yes
 export VENV_FLAG=""
+export CC="$CC_FOR_BUILD"
 
 # diagnostics
 #ls -lh ${PREFIX}/lib
